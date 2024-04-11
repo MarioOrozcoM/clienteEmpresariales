@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <script src="/src/javaScript/deleteCita.js"></script>
+    <title>Eliminar Cita</title>
+</head>
+<body class="flex flex-col min-h-screen">
+    
+<!-- Inicio navegación superior --> 
+<header class="bg-black">
+    <div class="container mx-auto flex items-center justify-between px-4 py-2 text-white">
+        <a href="/src/index.html">
+            <img src="img/iconHospital.jpeg" alt="Logo" class="w-30">
+        </a>
+        <h1 class="text-white text-2xl text-center w-1/2">Eliminar Cita</h1>
+    </div>
+</header>
+<!-- Fin navegación superior -->
+
+<div class="flex justify-center items-center m-6">
+    <img src="/src/img/iconPersona.jpeg" alt="eliminar cita" class="mr-4">
+    <h1 class="text-black font-semibold text-2xl">Eliminar Cita</h1>
+</div>
+
+<!-- Inicio contenido principal -->
+<div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md mt-4 w-1/2">
+    <form id="buscarCitaForm" class="mb-4">
+        <div class="mb-4">
+            <label for="identificacion" class="block text-gray-700 font-bold mb-2">Número de Identificación:</label>
+            <input type="text" id="identificacion" name="identificacion" class="w-full py-2 px-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-400 focus:border-indigo-400" required>
+        </div>
+        <button type="submit" class="bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600">Eliminar</button>
+    </form>
+
+    <div id="resultado"></div>
+</div>
+<!-- Fin contenido principal -->
+
+
+
+<!-- Inicio Footer -->
+<footer class="bg-black text-white py-4 mt-auto">
+    <div class="container mx-auto px-4">
+        <div class="text-white text-2xl text-center">
+            <p>Todos los Derechos Reservados 2024©</p>
+        </div>
+    </div>
+</footer>
+<!-- Fin Footer -->
+
+</body>
+</html>

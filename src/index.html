@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <script src="/src/javaScript/index.js"></script>
+    <title>Main Menu</title>
+</head>
+<body class="flex flex-col min-h-screen">
+
+<!-- Inicio navegación superior --> 
+<header class="bg-black relative">
+    <div class="container mx-auto flex items-center justify-between px-4 py-2 text-white">
+        <a href="/src/index.html">
+            <img src="img/iconHospital.jpeg" alt="Logo" class="w-30">
+        </a>
+        
+        <div class="flex space-x-4 text-white text-2xl gap-6 relative w-5/6">
+            <a href="/src/listaCitas.html" class="hover:text-gray-400">Lista de Citas</a>
+            <a href="#" class="hover:text-gray-400">Costo Total</a>
+            <div class="relative">
+                <a href="#" id="modificar" class="hover:text-gray-400">Modificar</a>
+                <div id="opciones-modificar" class="absolute bg-black rounded-md shadow-md py-2 w-48 text-center right-0 z-10 transition-all duration-300 opacity-0 invisible mt-10">
+                    <a href="/src/modificarCita.html" class="hover:text-gray-400 block">- Cita</a>
+                    <a href="/src/modificarConsultorio.html" class="hover:text-gray-400 block">- Consultorio</a>
+                </div>
+            </div>
+            <div class="relative">
+                <a href="#" id="eliminar" class="hover:text-gray-400">Eliminar</a>
+                <div id="opciones-eliminar" class="absolute bg-black rounded-md shadow-md py-2 w-48 text-center right-0 z-10 transition-all duration-300 opacity-0 invisible mt-10">
+                    <a href="/src/eliminarCita.html" class="hover:text-gray-400 block">- Cita</a>
+                    <a href="/src/eliminarConsultorio.html" class="hover:text-gray-400 block">- Consultorio</a>
+                </div>
+            </div>
+            <a href="/src/acerca.html" class="hover:text-gray-400">Acerca de</a>
+            <a href="/src/consultorio.html" class="hover:text-gray-400">Con.Especializado</a>
+            <a href="#" id="agregar" class="hover:text-gray-400">Agregar</a>
+            <div id="opciones-cita" class="absolute bg-black rounded-md shadow-md py-2 w-48 text-center right-0 z-10 transition-all duration-300 opacity-0 invisible">
+                <a href="/src/addCitaGeneral.html" class="hover:text-gray-400 block">- Cita General</a>
+                <a href="/src/addCitaEspecialista.html" class="hover:text-gray-400 block">- Cita Especialista</a>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Fin navegación superior -->
+
+<h1 class="text-center text-black text-2xl font-semibold mt-8">
+    Hospital de Ibagué
+</h1>
+
+<!-- Inicio Footer -->
+<footer class="bg-black text-white py-4 mt-auto">
+    <div class="container mx-auto px-4">
+        <div class="text-white text-2xl text-center">
+            <p>Todos los Derechos Reservados 2024©</p>
+        </div>
+    </div>
+</footer>
+<!-- Fin Footer -->
+
+</body>
+</html>
