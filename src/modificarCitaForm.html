@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./output.css" rel="stylesheet">
-    <title>Agregar Cita General</title>
+    <script src="/src/javaScript/modificarCitaForm.js"></script> 
+    <title>Modificar Cita</title>
 </head>
 <body class="flex flex-col min-h-screen">
 
@@ -49,8 +50,8 @@
 
 
 <div class="flex justify-center items-center m-6">
-    <img src="/src/img/iconPersona.jpeg" alt="agregar cita general" class="mr-4">
-    <h1 class="text-black font-semibold text-2xl">Agregar Cita</h1>
+    <img src="/src/img/iconPersona.jpeg" alt="modificar cita" class="mr-4">
+    <h1 class="text-black font-semibold text-2xl">Modificar Cita</h1>
 </div>
 
 <!-- Inicio contenido principal -->
@@ -64,7 +65,7 @@
       <!-- Campo Nombre -->
       <div>
         <label for="nombre" class="block text-lg font-semibold text-black">Nombre</label>
-        <input type="text" id="nombre" name="nombre" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border border-gray-400 rounded-md hover:border-indigo-500">
+        <input type="text" id="nombrePaciente" name="nombre" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border border-gray-400 rounded-md hover:border-indigo-500">
       </div>
       <!-- Campo Fecha -->
       <div>
@@ -107,7 +108,8 @@
 </footer>
 <!-- Fin Footer -->
 
-<script src="/src/javaScript/addCitaGeneral.js"></script>
-<script src="/src/javaScript/index.js"></script>
+<script src="/src/javaScript/modificarCitaForm.js"></script>
+
 </body>
 </html>
+
