@@ -44,7 +44,8 @@ document.addEventListener('DOMContentLoaded', function () {
             fecha: fecha,
             costo: costo,
             nombreGeneralista: nombreGeneralista,
-            observacion: observacion
+            observacion: observacion,
+            tipoCita: 'General' 
         };
 
         // Realizar una solicitud al backend para actualizar la cita
