@@ -66,4 +66,28 @@ function buscar() {
 // Llamar a la función para mostrar la lista de citas al cargar la página
 mostrarListaCita();
 
+function filtrarPorCosto(minCosto, maxCosto) {
+  // Obtener la tabla y las filas de la tabla
+  var tabla = document.getElementById('tablaPacientesBody');
+  var filas = tabla.getElementsByTagName('tr');
+
+  // Iterar sobre las filas y mostrar u ocultar según el rango de costo
+  for (var i = 0; i < filas.length; i++) {
+      var celdaCosto = filas[i].getElementsByTagName('td')[4]; // Columna de Costo
+      if (celdaCosto) {
+          var costo = parseInt(celdaCosto.innerText, 10); // Obtener el costo como número
+
+          // Mostrar la fila si el costo está en el rango especificado
+          if (costo >= minCosto && costo <= maxCosto) {
+              filas[i].style.display = '';
+          } else {
+              filas[i].style.display = 'none'; // Ocultar la fila si no cumple con el rango
+          }
+      }
+  }
+}
+
+function buscar() {
+  // Implementa la lógica para buscar según el ID o Nombre
+}
 
