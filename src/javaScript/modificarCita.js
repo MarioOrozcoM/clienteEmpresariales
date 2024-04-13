@@ -1,16 +1,19 @@
-document.getElementById('buscarCitaForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    
-    var identificacion = document.getElementById('identificacion').value;
-    //Necesito lo del back
-    fetch('url_del_backend/buscarCitaPorIdentificacion?id=' + identificacion)
-    .then(response => response.json())
-    .then(data => {
-        // Maneja los datos recibidos del backend aquí
-        mostrarResultado(data);
-    })
-    .catch(error => {
-        console.error('Error al buscar cita:', error);
+document.addEventListener('DOMContentLoaded', function() {
+    // Coloca aquí tu código JavaScript
+    document.getElementById('buscarCitaForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        var identificacion = document.getElementById('identificacion').value;
+        //Necesito lo del back
+        fetch(`http://localhost:8080/citas/obtener/${identificacion}`)
+        .then(response => response.json())
+        .then(data => {
+            // Maneja los datos recibidos del backend aquí
+            mostrarResultado(data);
+        })
+        .catch(error => {
+            console.error('Error al buscar cita:', error);
+        });
     });
 });
 
@@ -26,3 +29,5 @@ function mostrarResultado(citaEncontrada) {
 
     document.getElementById('resultado').innerHTML = resultadoHTML;
 }
+
+
