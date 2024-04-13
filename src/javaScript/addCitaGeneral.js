@@ -15,7 +15,7 @@ document.getElementById('myForm').addEventListener('submit', function(event) {
     nombrePaciente: nombre,
     fecha: fecha,
     costo: costo,
-    tipoCita: 'general',
+    tipoCita: 'General',
     nombreGeneralista: generalista,
     observacion: observaciones
   };
