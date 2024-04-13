@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             // Maneja los datos recibidos del backend aquí
+            console.log('Datos recibidos del backend:', data);
             mostrarResultado(data);
         })
         .catch(error => {
@@ -17,17 +18,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function mostrarResultado(citaEncontrada) {
-    // Genera el HTML para mostrar la cita encontrada
-    var resultadoHTML = '<h2 class="text-xl font-bold mt-4">Resultado de la búsqueda:</h2>';
-    resultadoHTML += '<p><strong>ID:</strong> ' + citaEncontrada.id + '</p>';
-    resultadoHTML += '<p><strong>Nombre:</strong> ' + citaEncontrada.nombre + '</p>';
-    resultadoHTML += '<p><strong>Fecha:</strong> ' + citaEncontrada.fecha + '</p>';
-    resultadoHTML += '<p><strong>Especialidad:</strong> ' + citaEncontrada.especialidad + '</p>';
-    resultadoHTML += '<p><strong>Número de Identificación:</strong> ' + citaEncontrada.identificacion + '</p>';
-    resultadoHTML += '<p><strong>Costo:</strong> ' + citaEncontrada.costo + '</p>';
+function mostrarResultado(data) {
+    if (data) {
+        console.log('Cita encontrada:', data);
+        // Redirige al usuario al formulario de modificación de cita con los detalles de la cita cargados en él
+        window.location.href = '/src/modificarCitaForm.html?id=' + data.numeroIdentificacion;
 
-    document.getElementById('resultado').innerHTML = resultadoHTML;
+    } else {
+        console.log('La cita no fue encontrada');
+    }
 }
+
 
 
