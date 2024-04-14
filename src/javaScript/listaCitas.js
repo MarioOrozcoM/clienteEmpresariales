@@ -87,7 +87,28 @@ function filtrarPorCosto(minCosto, maxCosto) {
   }
 }
 
-function buscar() {
-  // Implementa la lógica para buscar según el ID o Nombre
-}
+// Función para realizar la búsqueda de citas por ID o Nombre
+function buscarCita() {
+  const inputValue = document.getElementById('searchInput').value.trim().toLowerCase();
+  console.log('Valor de búsqueda:', inputValue); // Verifica el valor de búsqueda en la consola
 
+  // Obtener la tabla y las filas de la tabla
+  var tabla = document.getElementById('tablaPacientesBody');
+  var filas = tabla.getElementsByTagName('tr');
+
+  for (var i = 0; i < filas.length; i++) {
+      var celdaID = filas[i].getElementsByTagName('td')[0]; // Columna de ID
+      var celdaNombre = filas[i].getElementsByTagName('td')[1]; // Columna de Nombre
+      
+      if (celdaID && celdaNombre) {
+          var id = celdaID.innerText.toLowerCase();
+          var nombre = celdaNombre.innerText.toLowerCase();
+
+          if (id.includes(inputValue) || nombre.includes(inputValue)) {
+              filas[i].style.display = ''; 
+          } else {
+              filas[i].style.display = 'none'; 
+          }
+      }
+  }
+}
