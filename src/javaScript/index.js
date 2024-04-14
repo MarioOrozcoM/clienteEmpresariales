@@ -1,33 +1,35 @@
 document.addEventListener("DOMContentLoaded", function() {
     const agregar = document.getElementById('agregar');
     const opcionesCita = document.getElementById('opciones-cita');
+    const modificar = document.getElementById('modificar');
+    const opcionesModificar = document.getElementById('opciones-modificar');
+    const eliminar = document.getElementById('eliminar');
+    const opcionesEliminar = document.getElementById('opciones-eliminar');
 
     agregar.addEventListener("click", function() {
         opcionesCita.classList.toggle('opacity-100');
         opcionesCita.classList.toggle('invisible');
+        opcionesModificar.classList.remove('opacity-100');
+        opcionesModificar.classList.add('invisible');
+        opcionesEliminar.classList.remove('opacity-100');
+        opcionesEliminar.classList.add('invisible');
     });
-});
 
-// Con este código se crea el evento para el botón "Agregar".
-
-// Con este código maneja el evento para el botón Modificar
-document.addEventListener("DOMContentLoaded", function() {
-    const agregar = document.getElementById('modificar');
-    const opcionesCita = document.getElementById('opciones-modificar');
-
-    agregar.addEventListener("click", function() {
-        opcionesCita.classList.toggle('opacity-100');
-        opcionesCita.classList.toggle('invisible');
+    modificar.addEventListener("click", function() {
+        opcionesModificar.classList.toggle('opacity-100');
+        opcionesModificar.classList.toggle('invisible');
+        opcionesCita.classList.remove('opacity-100');
+        opcionesCita.classList.add('invisible');
+        opcionesEliminar.classList.remove('opacity-100');
+        opcionesEliminar.classList.add('invisible');
     });
-});
 
-//Evento para el botón Eliminar
-document.addEventListener("DOMContentLoaded", function() {
-    const agregar = document.getElementById('eliminar');
-    const opcionesCita = document.getElementById('opciones-eliminar');
-
-    agregar.addEventListener("click", function() {
-        opcionesCita.classList.toggle('opacity-100');
-        opcionesCita.classList.toggle('invisible');
+    eliminar.addEventListener("click", function() {
+        opcionesEliminar.classList.toggle('opacity-100');
+        opcionesEliminar.classList.toggle('invisible');
+        opcionesCita.classList.remove('opacity-100');
+        opcionesCita.classList.add('invisible');
+        opcionesModificar.classList.remove('opacity-100');
+        opcionesModificar.classList.add('invisible');
     });
 });
