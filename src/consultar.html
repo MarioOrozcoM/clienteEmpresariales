@@ -57,6 +57,47 @@
     </header>
     <!-- Fin navegación superior -->
 
+    <!-- Inicio contenido principal -->
+<div class="flex justify-center items-center mt-6">
+    <img src="/src/img/iconListaPacientes.jpeg" alt="Icono Lista Pacientes" class="mr-4">
+    <h1 class="text-black font-semibold text-2xl">Consultas</h1>
+</div>
+
+<!-- Inicio tabla -->
+<div class="flex justify-center mt-6 ml-20 mr-20">
+    <div class="w-full">
+
+        <!-- Barra de filtro de costos -->
+        <div class="flex justify-end mb-4">
+            <button onclick="filtrarPorCosto(0, 500)" class="px-4 py-2 bg-green-500 text-white rounded-md">Costo: 0-500</button>
+            <button onclick="filtrarPorCosto(500, 1000)" class="px-4 py-2 bg-yellow-500 text-white rounded-md">Costo: 500-1000</button>
+            <button onclick="filtrarPorCosto(1000, 10000)" class="px-4 py-2 bg-red-500 text-white rounded-md">Costo: 1000-10000</button>
+        </div>
+        <!-- Barra de búsqueda -->
+        <div class="flex justify-end mb-4">
+            <input type="text" id="searchInput" placeholder="Buscar por ID o Nombre" class="px-4 py-2 mr-2 border rounded-md">
+            <button onclick="buscarCita()" class="px-4 py-2 bg-blue-500 text-white rounded-md">Buscar</button>
+        </div>
+        <!-- Tabla de pacientes -->
+        <table class="table-auto w-full">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border">ID</th>
+                    <th class="px-4 py-2 border">Nombre</th>
+                    <th class="px-4 py-2 border">Fecha</th>
+                    <th class="px-4 py-2 border">Tipo de cita</th>
+                    <th class="px-4 py-2 border">Costo</th>
+                </tr>
+            </thead>
+            <tbody id="tablaPacientesBody">
+                <!-- Recupera del Backend -->
+            </tbody>
+        </table>
+    </div>
+</div> 
+<!-- Fin tabla -->
+
+<!-- Fin contenido principal -->
 
     <!-- Inicio Footer -->
 <footer class="bg-black text-white py-4 mt-auto">
