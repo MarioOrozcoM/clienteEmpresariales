@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const citaId = urlParams.get('id');
     
     // Realizar una solicitud al backend para obtener los detalles de la cita a modificar
-    fetch(`http://localhost:8080/citas/obtener/${citaId}`)
+    fetch(`http://localhost:8080/citas/${citaId}`)
         .then(response => {
             if (response.ok) {
                 return response.json();
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
         };
 
         // Realizar una solicitud al backend para actualizar la cita
-        fetch(`http://localhost:8080/citas/actualizar/${citaId}`, {
+        fetch(`http://localhost:8080/citas/${citaId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
