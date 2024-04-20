@@ -6,6 +6,21 @@
     <link href="./output.css" rel="stylesheet">
     <script src="/src/javaScript/index.js"></script>
     <title>ConsultarConsultorio</title>
+    <style>
+        /* Estilos del contenedor del filtro */
+        .filtro-container {
+            position: absolute;
+            top: 0px;
+            right: 20px;
+            z-index: 1000; /* Un valor alto para asegurarse de que esté por encima de otros elementos */
+        }
+
+        .filtro-iframe {
+            width: 500px; /* Ancho del iframe */
+            height: 500px; /* Alto del iframe */
+            border: none; /* Elimina el borde del iframe si es necesario */
+        }
+    </style>
 </head>
 <body class="flex flex-col min-h-screen">
     <!-- Inicio navegación superior -->
@@ -76,34 +91,43 @@
 <div class="flex justify-center items-center mt-6 relative">
     <img src="/src/img/iconListaPacientes.jpeg" alt="Icono Lista Pacientes" class="mr-4">
     <h1 class="text-black font-semibold text-2xl">Lista de Consultorios</h1>
-    <!-- Contenedor del filtro
-    <div class="filtro-container absolute top-0 right-0 mt-8 pr-6">
-        <iframe class="filtro-iframe" src="filtrarBusqueda.html" frameborder="0"></iframe>
-    </div> -->
+    
 </div>
 
-
-
-<!-- Inicio tabla -->
-<div class="relative mt-6 ml-20 mr-20">
-    <!-- Contenedor del filtro -->
-    
-    <div class="w-full">
-        <!-- Tabla de pacientes -->
-        <table class="table-auto w-full">
-            <thead>
-                <tr>
-                    <th class="px-4 py-2 border">ID</th>
-                    <th class="px-4 py-2 border">Seccion</th>
-                </tr>
-            </thead>
-            <tbody id="tablaConsultoriosBody">
-                <!-- Recupera del Backend -->
-            </tbody>
-        </table>
+<!-- Inicio filtro de búsqueda -->
+<div class="container">
+    <div class="filtro-header">
+        <span class="filtro-txt">Filtro por ID</span>
+        <button class="filtro-btn">&#xe429;</button>
+    </div>
+    <div class="opciones" style="display: none;">
+        <div class="seccion">
+            <label for="filtroID">ID:</label>
+            <input type="text" id="filtroID">
+        </div>
+        <div class="btnAceptar">
+            <button id="btnAceptar" class="btnAceptar">Aceptar</button>
+        </div>
     </div>
 </div>
 
+<!-- Fin filtro de búsqueda -->
+
+<!-- Inicio tabla -->
+<div class="relative mt-6 ml-20 mr-20">
+    <!-- Tabla de consultorios -->
+    <table class="table-auto w-full">
+        <thead>
+            <tr>
+                <th class="px-4 py-2 border">ID</th>
+                <th class="px-4 py-2 border">Seccion</th>
+            </tr>
+        </thead>
+        <tbody id="tablaConsultoriosBody">
+            <!-- Aquí se cargarán los datos de los consultorios -->
+        </tbody>
+    </table>
+</div>
 <!-- Fin tabla -->
 
 <!-- Fin contenido principal -->
@@ -119,6 +143,22 @@
     </div>
 </footer>
 <!-- Fin Footer -->
-    
+<script src="javaScript/consultarConsultorio.js"></script>   
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Obtener referencia al botón y al contenedor de opciones
+        const filtroBtn = document.querySelector('.filtro-btn');
+        const opciones = document.querySelector('.opciones');
+
+        // Agregar un evento de clic al botón
+        filtroBtn.addEventListener('click', function() {
+            // Alternar la visibilidad del contenedor de opciones
+            opciones.style.display = (opciones.style.display === 'none') ? 'block' : 'none';
+        });
+    });
+</script>
+
 </body>
 </html>
