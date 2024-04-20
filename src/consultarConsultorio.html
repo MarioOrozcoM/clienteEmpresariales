@@ -72,7 +72,41 @@
 </header>
 <!-- Fin navegación superior -->
 
+<!-- Inicio contenido principal -->
+<div class="flex justify-center items-center mt-6 relative">
+    <img src="/src/img/iconListaPacientes.jpeg" alt="Icono Lista Pacientes" class="mr-4">
+    <h1 class="text-black font-semibold text-2xl">Lista de Consultorios</h1>
+    <!-- Contenedor del filtro
+    <div class="filtro-container absolute top-0 right-0 mt-8 pr-6">
+        <iframe class="filtro-iframe" src="filtrarBusqueda.html" frameborder="0"></iframe>
+    </div> -->
+</div>
 
+
+
+<!-- Inicio tabla -->
+<div class="relative mt-6 ml-20 mr-20">
+    <!-- Contenedor del filtro -->
+    
+    <div class="w-full">
+        <!-- Tabla de pacientes -->
+        <table class="table-auto w-full">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border">ID</th>
+                    <th class="px-4 py-2 border">Seccion</th>
+                </tr>
+            </thead>
+            <tbody id="tablaConsultoriosBody">
+                <!-- Recupera del Backend -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Fin tabla -->
+
+<!-- Fin contenido principal -->
 
 
 
