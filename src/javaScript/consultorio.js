@@ -14,12 +14,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Crear un objeto con los datos del formulario
         const nuevoConsultorio = {
-            consultorio: consultorio,
-            seccion: seccion
+            id: consultorio,
+            nombre: seccion
         };
 
         //Con fetch api
-        fetch('/guardar-consultorio', {
+        fetch('http://localhost:8080/consultorios', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -35,6 +35,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     throw new Error('Error al guardar el consultorio.');
                 }
             })
+            
+            .then(nuevoConsultorio => {
+                // Maneja la respuesta del servidor si es necesario
+                console.log('Respuesta del servidor:', nuevoConsultorio);
+                // Vacía los campos de texto después de que la solicitud sea exitosa
+                document.getElementById('consultorio').value = '';
+                document.getElementById('seccion').value = '';
+              })
+
             .catch(error => {
                 console.error('Error:', error);
                 alert('Ocurrió un error al guardar el consultorio. Por favor, inténtelo de nuevo.');
