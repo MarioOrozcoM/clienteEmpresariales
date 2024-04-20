@@ -1,62 +1,66 @@
-console.log("El archivo scriptFiltro.js se ha cargado correctamente.");
+document.addEventListener("DOMContentLoaded", function() {
+  const filtroBtn = document.querySelector(".filtro-btn");
+  const filtroContainer = document.querySelector(".opciones");
 
-document.addEventListener("DOMContentLoaded", function () {
-  const btnFiltro = document.querySelector('.filtro-btn');
-  const opciones = document.querySelector('.opciones');
-  const tablaPacientesBody = document.getElementById('tablaPacientesBody');
+  // Ocultar inicialmente el contenedor de filtros
+  filtroContainer.style.display = "none";
 
-  btnFiltro.addEventListener('click', function () {
-      if (opciones.style.display === 'none') {
-          opciones.style.display = 'block';
+  // Mostrar contenedor de filtros al hacer clic en el botón de filtro
+  filtroBtn.addEventListener("click", function() {
+      if (filtroContainer.style.display === "none") {
+          filtroContainer.style.display = "block";
       } else {
-          opciones.style.display = 'none';
+          filtroContainer.style.display = "none";
       }
   });
 
-  const btnAceptar = document.getElementById('btnAceptar');
-  btnAceptar.addEventListener('click', function () {
-      const filtroID = document.getElementById('filtroID').value;
-      const filtroNombre = document.getElementById('filtroNombre').value;
-      const filtroCostoMin = parseFloat(document.getElementById('filtroCostoMin').value);
-      const filtroCostoMax = parseFloat(document.getElementById('filtroCostoMax').value);
-      const tipoCita = document.getElementById('tipoCita').value;
+  const btnAceptar = document.getElementById("btnAceptar");
+  btnAceptar.addEventListener("click", function() {
+      const id = document.getElementById("filtroID").value;
+      const nombre = document.getElementById("filtroNombre").value;
+      const costoMinimo = document.getElementById("filtroCostoMin").value || 0;
+      const costoMaximo = document.getElementById("filtroCostoMax").value;
+      const tipoCita = document.getElementById("tipoCita").value;
 
-      // Construir la URL de la petición GET al backend
-      let url = `http://localhost:8080/citas?`;
-      if (filtroID.trim() !== '') url += `id=${filtroID}&`;
-      if (filtroNombre.trim() !== '') url += `nombre=${filtroNombre}&`;
-      if (!isNaN(filtroCostoMin)) url += `costoMinimo=${filtroCostoMin}&`;
-      if (!isNaN(filtroCostoMax)) url += `costoMaximo=${filtroCostoMax}&`;
-      if (tipoCita.trim() !== '') url += `tipo=${tipoCita}`;
+      const queryParams = new URLSearchParams({
+          id: id,
+          nombre: nombre,
+          costoMinimo: costoMinimo,
+          costoMaximo: costoMaximo,
+          tipo: tipoCita
+      });
 
-      // Realizar la petición GET al backend
+      let url;
+      if (id || nombre || costoMinimo || costoMaximo || tipoCita) {
+          url = `http://localhost:8080/citas?${queryParams}`;
+      } else {
+          url = 'http://localhost:8080/citas/todas-las-citas';
+      }
+
       fetch(url)
           .then(response => {
-              if (response.ok) {
-                  return response.json();
+              if (!response.ok) {
+                  throw new Error('Network response was not ok');
               }
-              throw new Error('Error en la petición');
+              return response.json();
           })
-          .then(data => {
-              // Limpiar la tabla antes de agregar nuevas filas
-              tablaPacientesBody.innerHTML = '';
+          .then(citas => {
+              // Limpia la tabla de citas
+              const tablaPacientesBody = document.getElementById("tablaPacientesBody");
+              tablaPacientesBody.innerHTML = "";
 
-              // Agregar filas a la tabla con los datos de las citas recibidas
-              data.forEach(cita => {
-                  const fila = document.createElement('tr');
+              // Agrega las citas filtradas a la tabla
+              citas.forEach(cita => {
+                  const fila = document.createElement("tr");
                   fila.innerHTML = `
                       <td>${cita.id}</td>
                       <td>${cita.nombre}</td>
-                      <td>${cita.fecha}</td>
-                      <td>${cita.tipo}</td>
                       <td>${cita.costo}</td>
+                      <td>${cita.tipo}</td>
                   `;
                   tablaPacientesBody.appendChild(fila);
               });
           })
-          .catch(error => {
-              console.error('Error:', error);
-              // Aquí puedes manejar el error y notificar al usuario si ocurrió algún problema
-          });
+          .catch(error => console.error('Error al obtener citas:', error));
   });
 });
