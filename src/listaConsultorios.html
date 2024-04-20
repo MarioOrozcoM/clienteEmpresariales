@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./output.css" rel="stylesheet">
-
     <script src="/src/javaScript/index.js"></script>
-    <title>Eliminar Consultorio</title>
+    <script src="/src/javaScript/listaConsultorios.js"></script>
+    <title>Lista de Consultorios</title>
 </head>
 <body class="flex flex-col min-h-screen">
     
@@ -74,23 +74,41 @@
 </header>
 <!-- Fin navegación superior -->
 
-<div class="flex justify-center items-center m-6">
-    <img src="/src/img/iconPersona.jpeg" alt="eliminar consultorio" class="mr-4">
-    <h1 class="text-black font-semibold text-2xl">Eliminar Consultorio</h1>
-</div>
 
 <!-- Inicio contenido principal -->
-<div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md mt-4 w-1/2">
-    <form id="eliminarConsultorioForm" class="mb-4">
-        <div class="mb-4">
-            <label for="numeroConsultorio" class="block text-gray-700 font-bold mb-2">Número de Consultorio:</label>
-            <input type="text" id="numeroConsultorio" name="numeroConsultorio" class="w-full py-2 px-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-400 focus:border-indigo-400" required>
-        </div>
-        <button type="submit" class="bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-600">Eliminar</button>
-    </form>
-
-    <div id="resultado"></div>
+<div class="flex justify-center items-center mt-6 relative">
+    <img src="/src/img/iconListaPacientes.jpeg" alt="Icono Lista Pacientes" class="mr-4">
+    <h1 class="text-black font-semibold text-2xl">Lista de Consultorios</h1>
+    <!-- Contenedor del filtro
+    <div class="filtro-container absolute top-0 right-0 mt-8 pr-6">
+        <iframe class="filtro-iframe" src="filtrarBusqueda.html" frameborder="0"></iframe>
+    </div> -->
 </div>
+
+
+
+<!-- Inicio tabla -->
+<div class="relative mt-6 ml-20 mr-20">
+    <!-- Contenedor del filtro -->
+    
+    <div class="w-full">
+        <!-- Tabla de pacientes -->
+        <table class="table-auto w-full">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border">ID</th>
+                    <th class="px-4 py-2 border">Seccion</th>
+                </tr>
+            </thead>
+            <tbody id="tablaConsultoriosBody">
+                <!-- Recupera del Backend -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Fin tabla -->
+
 <!-- Fin contenido principal -->
 
 
@@ -105,6 +123,5 @@
 </footer>
 <!-- Fin Footer -->
 
-<script src="/src/javaScript/deleteConsultorio.js"></script>
 </body>
 </html>

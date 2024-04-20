@@ -63,15 +63,13 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     listar.addEventListener("click", function() {
-        opcionesConsultar.classList.toggle('opacity-100');
-        opcionesConsultar.classList.toggle('invisible');
+        opcionesListar.classList.toggle('opacity-100');
+        opcionesListar.classList.toggle('invisible');
         opcionesCita.classList.remove('opacity-100');
         opcionesCita.classList.add('invisible');
         opcionesModificar.classList.remove('opacity-100');
         opcionesModificar.classList.add('invisible');
         opcionesEliminar.classList.remove('opacity-100');
         opcionesEliminar.classList.add('invisible');
-        opcionesListar.classList.remove('opacity-100');
-        opcionesListar.classList.add('invisible');
     });
 });
