@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./output.css" rel="stylesheet">
-    <script src="/src/javaScript/deleteConsultorio.js"></script>
     <script src="/src/javaScript/index.js"></script>
-    <title>Eliminar Consultorio</title>
+    <title>ConsultarCita</title>
 </head>
 <body class="flex flex-col min-h-screen">
-    
-<!-- Inicio navegación superior -->
-<header class="bg-custom-color dark:bg-gray-800 shadow-md relative" style="background-color: #F9F8EF;">
+
+   <!-- Inicio navegación superior -->
+   <header class="bg-custom-color dark:bg-gray-800 shadow-md relative" style="background-color: #F9F8EF;">
     <div class="container mx-auto flex items-center justify-between px-4 py-2 text-white">
         <a href="/src/index.html">
             <img src="img/iconHospital.jpeg" alt="Logo" class="w-30">
@@ -66,28 +65,49 @@
 </header>
 <!-- Fin navegación superior -->
 
-<div class="flex justify-center items-center m-6">
-    <img src="/src/img/iconPersona.jpeg" alt="eliminar consultorio" class="mr-4">
-    <h1 class="text-black font-semibold text-2xl">Eliminar Consultorio</h1>
+    <!-- Inicio contenido principal -->
+<div class="flex justify-center items-center mt-6">
+    <img src="/src/img/iconListaPacientes.jpeg" alt="Icono Lista Pacientes" class="mr-4">
+    <h1 class="text-black font-semibold text-2xl">Consultas</h1>
 </div>
 
-<!-- Inicio contenido principal -->
-<div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md mt-4 w-1/2">
-    <form id="eliminarConsultorioForm" class="mb-4">
-        <div class="mb-4">
-            <label for="numeroConsultorio" class="block text-gray-700 font-bold mb-2">Número de Consultorio:</label>
-            <input type="text" id="numeroConsultorio" name="numeroConsultorio" class="w-full py-2 px-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-400 focus:border-indigo-400" required>
+<!-- Inicio tabla -->
+<div class="flex justify-center mt-6 ml-20 mr-20">
+    <div class="w-full">
+
+        <!-- Barra de filtro de costos -->
+        <div class="flex justify-end mb-4">
+            <button onclick="filtrarPorCosto(0, 500)" class="px-4 py-2 bg-green-500 text-white rounded-md">Costo: 0-500</button>
+            <button onclick="filtrarPorCosto(500, 1000)" class="px-4 py-2 bg-yellow-500 text-white rounded-md">Costo: 500-1000</button>
+            <button onclick="filtrarPorCosto(1000, 10000)" class="px-4 py-2 bg-red-500 text-white rounded-md">Costo: 1000-10000</button>
         </div>
-        <button type="submit" class="bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-600">Eliminar</button>
-    </form>
+        <!-- Barra de búsqueda -->
+        <div class="flex justify-end mb-4">
+            <input type="text" id="searchInput" placeholder="Buscar por ID o Nombre" class="px-4 py-2 mr-2 border rounded-md">
+            <button onclick="buscarCita()" class="px-4 py-2 bg-blue-500 text-white rounded-md">Buscar</button>
+        </div>
+        <!-- Tabla de pacientes -->
+        <table class="table-auto w-full">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border">ID</th>
+                    <th class="px-4 py-2 border">Nombre</th>
+                    <th class="px-4 py-2 border">Fecha</th>
+                    <th class="px-4 py-2 border">Tipo de cita</th>
+                    <th class="px-4 py-2 border">Costo</th>
+                </tr>
+            </thead>
+            <tbody id="tablaPacientesBody">
+                <!-- Recupera del Backend -->
+            </tbody>
+        </table>
+    </div>
+</div> 
+<!-- Fin tabla -->
 
-    <div id="resultado"></div>
-</div>
 <!-- Fin contenido principal -->
 
-
-
-<!-- Inicio Footer -->
+    <!-- Inicio Footer -->
 <footer class="bg-black text-white py-4 mt-auto">
     <div class="container mx-auto px-4">
         <div class="text-white text-2xl text-center">
@@ -96,6 +116,6 @@
     </div>
 </footer>
 <!-- Fin Footer -->
-
+    
 </body>
 </html>

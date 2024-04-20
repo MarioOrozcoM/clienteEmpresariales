@@ -24,7 +24,7 @@ document.getElementById('myForm').addEventListener('submit', function(event) {
   var jsonData = JSON.stringify(data);
   
   // Envía los datos al backend utilizando fetch()
-  fetch('http://localhost:8080/citas/crear', {
+  fetch('http://localhost:8080/citas', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
