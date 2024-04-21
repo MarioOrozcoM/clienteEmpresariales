@@ -25,15 +25,14 @@ function mostrarListaCita() {
 
 function buscar() {
   const inputValue = document.getElementById('searchInput').value.trim().toLowerCase();
-  console.log('ID de búsqueda:', inputValue); // Verifica el ID de búsqueda en la consola
+  console.log('ID de búsqueda:', inputValue); 
   
   fetch(`http://localhost:8080/citas/${inputValue}`) 
       .then(response => response.json())
       .then(data => {
           const tablaBody = document.getElementById('tablaPacientesBody');
-          tablaBody.innerHTML = ''; // Limpiar la tabla antes de llenarla con los datos
-          
-          // Verifica si data es un array
+          tablaBody.innerHTML = ''; 
+
           if (Array.isArray(data)) {
               data.forEach(cita => {
                   const fila = document.createElement('tr');
@@ -46,7 +45,7 @@ function buscar() {
                   `;
                   tablaBody.appendChild(fila);
               });
-          } else { // Si data no es un array, es un objeto de cita
+          } else if (data && !Array.isArray(data)) { 
               const fila = document.createElement('tr');
               fila.innerHTML = `
                   <td class="border px-4 py-2">${data.numeroIdentificacion}</td>
@@ -63,6 +62,5 @@ function buscar() {
       });
 }
 
-// Llamar a la función para mostrar la lista de citas al cargar la página
 mostrarListaCita();
 
