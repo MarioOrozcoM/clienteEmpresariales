@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./output.css" rel="stylesheet">
-    <title>Agregar Cita General</title>
+    <script src="/src/javaScript/index.js"></script>
+    <title>Modificar Consultorio</title>
 </head>
 <body class="flex flex-col min-h-screen">
 
@@ -74,8 +75,8 @@
 
 
 <div class="flex justify-center items-center m-6">
-    <img src="/src/img/iconPersona.jpeg" alt="agregar cita general" class="mr-4">
-    <h1 class="text-black font-semibold text-2xl">Agregar Cita</h1>
+    <img src="/src/img/iconPersona.jpeg" alt="modificar cita" class="mr-4">
+    <h1 class="text-black font-semibold text-2xl">Modificar Cita</h1>
 </div>
 
 <!-- Inicio contenido principal -->
@@ -83,34 +84,15 @@
     <form id="myForm" class="grid grid-cols-2 gap-4">
       <!-- Campo No. Identificación -->
       <div class="col-span-2">
-        <label for="identificacion" class="block text-lg font-semibold text-black">No. Identificación</label>
-        <input type="text" id="identificacion" name="identificacion" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border border-gray-400 rounded-md hover:border-indigo-500">
+        <label for="numeroConsultorio" class="block text-lg font-semibold text-black">No. Identificación</label>
+        <input type="text" id="numeroConsultorio" name="numeroConsultorio" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border border-gray-400 rounded-md hover:border-indigo-500">
       </div>
       <!-- Campo Nombre -->
       <div>
-        <label for="nombre" class="block text-lg font-semibold text-black">Nombre</label>
-        <input type="text" id="nombre" name="nombre" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border border-gray-400 rounded-md hover:border-indigo-500">
+        <label for="seccion" class="block text-lg font-semibold text-black">Seccion</label>
+        <input type="text" id="seccion" name="seccion" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border border-gray-400 rounded-md hover:border-indigo-500">
       </div>
-      <!-- Campo Fecha -->
-      <div>
-        <label for="fecha" class="block text-lg font-semibold text-black">Fecha</label>
-        <input type="date" id="fecha" name="fecha" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border border-gray-400 rounded-md hover:border-indigo-500">
-      </div>
-      <!-- Campo Costo -->
-      <div>
-        <label for="costo" class="block text-lg font-semibold text-black">Costo</label>
-        <input type="number" id="costo" name="costo" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border border-gray-400 rounded-md hover:border-indigo-500">
-      </div>
-      <!-- Campo Nombre Generalista -->
-      <div class="col-span-2">
-        <label for="generalista" class="block text-lg font-semibold text-black">Nombre Generalista</label>
-        <input type="text" id="generalista" name="generalista" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border border-gray-400 rounded-md hover:border-indigo-500">
-      </div>
-      <!-- Campo Observaciones -->
-      <div class="col-span-2">
-        <label for="observaciones" class="block text-lg font-semibold text-black">Observaciones</label>
-        <textarea id="observaciones" name="observaciones" rows="3" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border border-gray-400 rounded-md hover:border-indigo-500"></textarea>
-      </div>
+      
       <!-- Botón Guardar -->
       <div class="col-span-2">
         <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -132,7 +114,7 @@
 </footer>
 <!-- Fin Footer -->
 
-<script src="/src/javaScript/addCitaGeneral.js"></script>
-<script src="/src/javaScript/index.js"></script>
+<script src="/src/javaScript/modificarConsultorioForm.js"></script>
+
 </body>
 </html>

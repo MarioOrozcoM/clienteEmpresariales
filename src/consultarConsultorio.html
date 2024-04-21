@@ -6,65 +6,131 @@
     <link href="./output.css" rel="stylesheet">
     <script src="/src/javaScript/index.js"></script>
     <title>ConsultarConsultorio</title>
+    <style>
+        /* Estilos del contenedor del filtro */
+        .filtro-container {
+            position: absolute;
+            top: 0px;
+            right: 20px;
+            z-index: 1000; /* Un valor alto para asegurarse de que esté por encima de otros elementos */
+        }
+
+        .filtro-iframe {
+            width: 500px; /* Ancho del iframe */
+            height: 500px; /* Alto del iframe */
+            border: none; /* Elimina el borde del iframe si es necesario */
+        }
+    </style>
 </head>
 <body class="flex flex-col min-h-screen">
     <!-- Inicio navegación superior -->
-    <header class="bg-custom-color dark:bg-gray-800 shadow-md relative" style="background-color: #F9F8EF;">
-        <div class="container mx-auto flex items-center justify-between px-4 py-2 text-white">
-            <a href="/src/index.html">
-                <img src="img/iconHospital.jpeg" alt="Logo" class="w-30">
-            </a>
+<header class="bg-custom-color dark:bg-gray-800 shadow-md relative" style="background-color: #F9F8EF;">
+    <div class="container mx-auto flex items-center justify-between px-4 py-2 text-white">
+        <a href="/src/index.html">
+            <img src="img/iconHospital.jpeg" alt="Logo" class="w-30">
+        </a>
 
-            <div class="flex space-x-4 text-black text-2xl gap-6 relative w-3/4">
-                <div class="relative">
-                    <a href="#" id="agregar" class="hover:underline">Agregar</a>
-                    <div id="opciones-cita"
-                        class="absolute bg-custom-color rounded-md shadow-md py-2 w-48 text-center right-0 z-10 transition-all duration-300 opacity-0 invisible"
-                        style="background-color: #F9F8EF;">
-                        <a href="/src/addCitaGeneral.html" class="hover:underline block">- Cita General</a>
-                        <a href="/src/consultorio.html" class="hover:underline block">- Consultorio</a>
-                    </div>
+        <div class="flex space-x-4 text-black text-2xl gap-6 relative w-3/4">
+            <div class="relative">
+                <a href="#" id="agregar" class="hover:underline">Agregar</a>
+                <div id="opciones-cita"
+                    class="absolute bg-custom-color rounded-md shadow-md py-2 w-48 text-center right-0 z-10 transition-all duration-300 opacity-0 invisible"
+                    style="background-color: #F9F8EF;">
+                    <a href="/src/addCitaGeneral.html" class="hover:underline block">- Cita General</a>
+                    <a href="/src/consultorio.html" class="hover:underline block">- Consultorio</a>
                 </div>
-                <div class="relative">
-                    <a href="#" id="modificar" class="hover:underline">Modificar</a>
-                    <div id="opciones-modificar"
-                        class="absolute bg-custom-color rounded-md shadow-md py-2 w-48 text-center right-0 z-10 transition-all duration-300 opacity-0 invisible mt-10"
-                        style="background-color: #F9F8EF;">
-                        <a href="/src/modificarCita.html" class="hover:underline block">- Cita</a>
-                        <a href="/src/modificarConsultorio.html" class="hover:underline block">- Consultorio</a>
-                    </div>
-                </div>
-                <a href="/src/listaCitas.html" class="hover:underline">Lista de Citas</a>
-                <div class="relative">
-                    <a href="#" id="eliminar" class="hover:underline">Eliminar</a>
-                    <div id="opciones-eliminar"
-                        class="absolute bg-custom-color rounded-md shadow-md py-2 w-48 text-center right-0 z-10 transition-all duration-300 opacity-0 invisible mt-10"
-                        style="background-color: #F9F8EF;">
-                        <a href="/src/eliminarCita.html" class="hover:underline block">- Cita</a>
-                        <a href="/src/eliminarConsultorio.html" class="hover:underline block">- Consultorio</a>
-                    </div>
-                </div>
-                <div class="relative">
-                    <a href="#" id="consultar" class="hover:underline">Consultar</a>
-                    <div id="opciones-consultar"
-                        class="absolute bg-custom-color rounded-md shadow-md py-2 w-48 text-center right-0 z-10 transition-all duration-300 opacity-0 invisible mt-10"
-                        style="background-color: #F9F8EF;">
-                        <a href="/src/consultarCita.html" class="hover:underline block">- Cita</a>
-                        <a href="/src/consultarConsultorio.html" class="hover:underline block">- Consultorio</a>
-                    </div>
-                </div>
-
-                <!--<a href="/src/costoTotal.html" class="hover:underline">Costo Total</a>-->
-                <a href="/src/acerca.html" class="hover:underline">Acerca de</a>
-                <!-- <a href="/src/consultorio.html" class="hover:underline">Con.Especializado</a> -->
-
-
             </div>
+            <div class="relative">
+                <a href="#" id="modificar" class="hover:underline">Modificar</a>
+                <div id="opciones-modificar"
+                    class="absolute bg-custom-color rounded-md shadow-md py-2 w-48 text-center right-0 z-10 transition-all duration-300 opacity-0 invisible mt-10"
+                    style="background-color: #F9F8EF;">
+                    <a href="/src/modificarCita.html" class="hover:underline block">- Cita</a>
+                    <a href="/src/modificarConsultorio.html" class="hover:underline block">- Consultorio</a>
+                </div>
+            </div>
+            <div class="relative">
+                <a href="#" id="listar" class="hover:underline">Listar</a>
+                <div id="opciones-listar"
+                    class="absolute bg-custom-color rounded-md shadow-md py-2 w-48 text-center right-0 z-10 transition-all duration-300 opacity-0 invisible mt-10"
+                    style="background-color: #F9F8EF;">
+                    <a href="/src/listaCitas.html" class="hover:underline block">- Cita</a>
+                    <a href="/src/listaConsultorios.html" class="hover:underline block">- Consultorio</a>
+                </div>
+            </div>
+            <div class="relative">
+                <a href="#" id="eliminar" class="hover:underline">Eliminar</a>
+                <div id="opciones-eliminar"
+                    class="absolute bg-custom-color rounded-md shadow-md py-2 w-48 text-center right-0 z-10 transition-all duration-300 opacity-0 invisible mt-10"
+                    style="background-color: #F9F8EF;">
+                    <a href="/src/eliminarCita.html" class="hover:underline block">- Cita</a>
+                    <a href="/src/eliminarConsultorio.html" class="hover:underline block">- Consultorio</a>
+                </div>
+            </div>
+            <div class="relative">
+                <a href="#" id="consultar" class="hover:underline">Consultar</a>
+                <div id="opciones-consultar"
+                    class="absolute bg-custom-color rounded-md shadow-md py-2 w-48 text-center right-0 z-10 transition-all duration-300 opacity-0 invisible mt-10"
+                    style="background-color: #F9F8EF;">
+                    <a href="/src/consultarCita.html" class="hover:underline block">- Cita</a>
+                    <a href="/src/consultarConsultorio.html" class="hover:underline block">- Consultorio</a>
+                </div>
+            </div>
+
+            <!--<a href="/src/costoTotal.html" class="hover:underline">Costo Total</a>-->
+            <a href="/src/acerca.html" class="hover:underline">Acerca de</a>
+            <!-- <a href="/src/consultorio.html" class="hover:underline">Con.Especializado</a> -->
+
+
         </div>
-    </header>
-    <!-- Fin navegación superior -->
+    </div>
+</header>
+<!-- Fin navegación superior -->
 
+<!-- Inicio contenido principal -->
+<div class="flex justify-center items-center mt-6 relative">
+    <img src="/src/img/iconListaPacientes.jpeg" alt="Icono Lista Pacientes" class="mr-4">
+    <h1 class="text-black font-semibold text-2xl">Lista de Consultorios</h1>
+    
+</div>
 
+<!-- Inicio filtro de búsqueda -->
+<div class="container">
+    <div class="filtro-header">
+        <span class="filtro-txt">Filtro por ID</span>
+        <button class="filtro-btn">&#xe429;</button>
+    </div>
+    <div class="opciones" style="display: none;">
+        <div class="seccion">
+            <label for="filtroID">ID:</label>
+            <input type="text" id="filtroID">
+        </div>
+        <div class="btnAceptar">
+            <button id="btnAceptar" class="btnAceptar">Aceptar</button>
+        </div>
+    </div>
+</div>
+
+<!-- Fin filtro de búsqueda -->
+
+<!-- Inicio tabla -->
+<div class="relative mt-6 ml-20 mr-20">
+    <!-- Tabla de consultorios -->
+    <table class="table-auto w-full">
+        <thead>
+            <tr>
+                <th class="px-4 py-2 border">ID</th>
+                <th class="px-4 py-2 border">Seccion</th>
+            </tr>
+        </thead>
+        <tbody id="tablaConsultoriosBody">
+            <!-- Aquí se cargarán los datos de los consultorios -->
+        </tbody>
+    </table>
+</div>
+<!-- Fin tabla -->
+
+<!-- Fin contenido principal -->
 
 
 
@@ -77,6 +143,22 @@
     </div>
 </footer>
 <!-- Fin Footer -->
-    
+<script src="javaScript/consultarConsultorio.js"></script>   
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Obtener referencia al botón y al contenedor de opciones
+        const filtroBtn = document.querySelector('.filtro-btn');
+        const opciones = document.querySelector('.opciones');
+
+        // Agregar un evento de clic al botón
+        filtroBtn.addEventListener('click', function() {
+            // Alternar la visibilidad del contenedor de opciones
+            opciones.style.display = (opciones.style.display === 'none') ? 'block' : 'none';
+        });
+    });
+</script>
+
 </body>
 </html>

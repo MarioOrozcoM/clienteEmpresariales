@@ -52,7 +52,15 @@
                     <a href="/src/modificarConsultorio.html" class="hover:underline block">- Consultorio</a>
                 </div>
             </div>
-            <a href="/src/listaCitas.html" class="hover:underline">Lista de Citas</a>
+            <div class="relative">
+                <a href="#" id="listar" class="hover:underline">Listar</a>
+                <div id="opciones-listar"
+                    class="absolute bg-custom-color rounded-md shadow-md py-2 w-48 text-center right-0 z-10 transition-all duration-300 opacity-0 invisible mt-10"
+                    style="background-color: #F9F8EF;">
+                    <a href="/src/listaCitas.html" class="hover:underline block">- Cita</a>
+                    <a href="/src/listaConsultorios.html" class="hover:underline block">- Consultorio</a>
+                </div>
+            </div>
             <div class="relative">
                 <a href="#" id="eliminar" class="hover:underline">Eliminar</a>
                 <div id="opciones-eliminar"
@@ -118,8 +126,6 @@
     </div>
 </div>
 
-
-
 <!-- Fin tabla -->
 
 <!-- Fin contenido principal -->
@@ -134,7 +140,8 @@
     
 </footer>
 <!-- Fin Footer -->
-    
+<script src="scriptFiltro.js"></script>
+
 </body>
 </html>
 
