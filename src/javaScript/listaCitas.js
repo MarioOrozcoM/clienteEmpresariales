@@ -14,6 +14,7 @@ function mostrarListaCita() {
             <td class="border px-4 py-2">${cita.fecha}</td>
             <td class="border px-4 py-2">${cita.tipoCita}</td>
             <td class="border px-4 py-2">${cita.costo}</td>
+            <td class="border px-4 py-2">${cita.consultorio}</td>
           `;
         tablaBody.appendChild(fila);
       });
@@ -42,6 +43,7 @@ function buscar() {
                       <td class="border px-4 py-2">${cita.fecha}</td>
                       <td class="border px-4 py-2">${cita.tipoCita}</td>
                       <td class="border px-4 py-2">${cita.costo}</td>
+                      <td class="border px-4 py-2">${cita.consultorio}</td>
                   `;
                   tablaBody.appendChild(fila);
               });
@@ -53,6 +55,8 @@ function buscar() {
                   <td class="border px-4 py-2">${data.fecha}</td>
                   <td class="border px-4 py-2">${data.tipoCita}</td>
                   <td class="border px-4 py-2">${data.costo}</td>
+                  <td class="border px-4 py-2">${data.consultorio}</td>
+
               `;
               tablaBody.appendChild(fila);
           }
