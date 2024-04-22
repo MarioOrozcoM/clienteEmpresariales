@@ -47,7 +47,7 @@ document.getElementById('myForm').addEventListener('submit', function(event) {
     document.getElementById('costo').value = '';
     document.getElementById('generalista').value = '';
     document.getElementById('observaciones').value = '';
-    window.location.href = "../src/consultorio.html";
+    window.location.href = "../src/asignarConsultorio.html";
   })
   .catch(error => {
     console.error('Error:', error);
