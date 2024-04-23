@@ -12,7 +12,8 @@ function mostrarListaCita() {
                   <td class="border px-4 py-2">${cita.fecha}</td>
                   <td class="border px-4 py-2">${cita.tipoCita}</td>
                   <td class="border px-4 py-2">${cita.costo}</td>
-                  <td class="border px-4 py-2">${cita.consultorio}</td>
+                  <td class="border px-4 py-2">${cita.idConsultorio}</td>
+
               `;
               tablaBody.appendChild(fila);
           });
