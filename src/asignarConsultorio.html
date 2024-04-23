@@ -5,29 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./output.css" rel="stylesheet">
-    <script src="/src/javaScript/listaCitas.js"></script>
     <script src="/src/javaScript/index.js"></script>
-    <title>Lista de Citas</title>
 
-    <style>
-        /* Estilos del contenedor del filtro */
-        .filtro-container {
-            position: absolute;
-            top: 0px;
-            right: 20px;
-            z-index: 1000;
-            /* Un valor alto para asegurarse de que esté por encima de otros elementos */
-        }
-
-        .filtro-iframe {
-            width: 500px;
-            /* Ancho del iframe */
-            height: 500px;
-            /* Alto del iframe */
-            border: none;
-            /* Elimina el borde del iframe si es necesario */
-        }
-    </style>
+    <title>Asignar Consultorio</title>
 </head>
 
 <body class="flex flex-col min-h-screen">
@@ -97,45 +77,30 @@
     <!-- Fin navegación superior -->
 
 
-    <!-- Inicio contenido principal -->
-    <div class="flex justify-center items-center mt-6 relative">
-        <img src="/src/img/iconListaPacientes.jpeg" alt="Icono Lista Pacientes" class="mr-4">
-        <h1 class="text-black font-semibold text-2xl">Lista de Citas</h1>
-        <!-- Contenedor del filtro -->
-        <div class="filtro-container absolute top-0 right-0 mt-8 pr-6">
-            <iframe class="filtro-iframe" src="filtrarBusqueda.html" frameborder="0"></iframe>
-        </div>
+<!-- Titulo -->
+<div class="flex justify-center items-center mt-6">
+    <img src="/src/img/iconPersona.jpeg" alt="acerca" class="mr-4">
+    <h1 class="text-black font-semibold text-2xl">Asignar Consultorio</h1>
+</div>
+<!-- Titulo -->
+
+    <!-- Inicio Agregar Consultorio -->
+    <div class="container mx-auto mt-8">
+        <form id="formulario" class="max-w-md mx-auto">
+            <div class="mb-4">
+                <label for="consultorio" class="block text-gray-700 text-lg font-bold mb-2">Número del
+                    consultorio:</label>
+                <input type="text" id="consultorio" name="consultorio"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="flex items-center justify-center">
+                <button type="button" id="guardar"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Asignar</button>
+            </div>
+        </form>
     </div>
 
-
-
-    <!-- Inicio tabla -->
-    <div class="relative mt-6 ml-20 mr-20">
-        <!-- Contenedor del filtro -->
-
-        <div class="w-full">
-            <!-- Tabla de pacientes -->
-            <table class="table-auto w-full">
-                <thead>
-                    <tr>
-                        <th class="px-4 py-2 border">ID</th>
-                        <th class="px-4 py-2 border">Nombre</th>
-                        <th class="px-4 py-2 border">Fecha</th>
-                        <th class="px-4 py-2 border">Tipo de cita</th>
-                        <th class="px-4 py-2 border">Costo</th>
-                        <th class="px-4 py-2 border">Consultorio Asignado</th>
-                    </tr>
-                </thead>
-                <tbody id="tablaPacientesBody">
-                    <!-- Recupera del Backend -->
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <!-- Fin tabla -->
-
-    <!-- Fin contenido principal -->
+    <!-- Fin Agregar Consultorio -->
 
     <!-- Inicio Footer -->
     <footer class="bg-black text-white py-4 mt-auto">
@@ -147,21 +112,7 @@
 
     </footer>
     <!-- Fin Footer -->
-    <script>
-       
-        window.addEventListener('message', function (event) {
-            if (event.origin !== 'http://127.0.0.1:5500') return;
-
-            console.log('Mensaje recibido desde el iframe:', event.data);
-
-            const tablaPacientesBody = document.getElementById("tablaPacientesBody");
-            tablaPacientesBody.innerHTML = event.data;
-
-
-        });
-    </script>
-
-
+    <script src="/src/javaScript/asignarConsultorio.js"></script>
 </body>
 
 </html>
