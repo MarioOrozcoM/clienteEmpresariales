@@ -38,8 +38,15 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         fetch(url)
-        .then(response => response.json())
-        .then(citas => {
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error al obtener citas: ' + response.status);
+        }
+        return response.json();
+    })
+    .then(citas => {
+        // Verificar si las citas son un array y no está vacío
+        if (Array.isArray(citas) && citas.length > 0) {
             console.log('Datos recibidos:', citas);
 
             let tablaHTML = '';
@@ -51,14 +58,18 @@ document.addEventListener("DOMContentLoaded", function () {
                         <td class="border px-4 py-2">${cita.fecha}</td>
                         <td class="border px-4 py-2">${cita.tipoCita}</td>
                         <td class="border px-4 py-2">${cita.costo}</td>
+                        <td class="border px-4 py-2">${cita.idConsultorio}</td>
                     </tr>
                 `;
             });
             console.log('HTML de la tabla:', tablaHTML);
             window.parent.postMessage(tablaHTML, 'http://127.0.0.1:5500');
-        })
-        .catch(error => console.error('Error al obtener citas:', error));
-    
+        } else {
+            throw new Error('No se recibieron datos de citas válidos');
+        }
+    })
+    .catch(error => console.error('Error al obtener citas:', error));
+
     });
 });
 
