@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Obtener el valor del parámetro "id" de la URL
     const urlParams = new URLSearchParams(window.location.search);
     const citaId = urlParams.get('id');
-    
     // Realizar una solicitud al backend para obtener los detalles de la cita a modificar
     fetch(`http://localhost:8080/citas/${citaId}`)
         .then(response => {
@@ -20,22 +19,27 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('costo').value = data.costo;
             document.getElementById('generalista').value = data.nombreGeneralista;
             document.getElementById('observaciones').value = data.observacion;
+            document.getElementById('citaId').value = citaId; // Asignar el valor de citaId al campo oculto citaId
+            document.getElementById('consultorioAsignado').value = data.idConsultorio; // Asignar el valor de idConsultorio al campo oculto consultorioAsignado
         })
         .catch(error => {
             console.error('Error al obtener los detalles de la cita:', error);
         });
 
-    // Agregar un evento de escucha al formulario
-    document.getElementById('myForm').addEventListener('submit', function (event) {
-        event.preventDefault(); // Evitar el envío del formulario por defecto
+    const myForm = document.getElementById('myForm');
+
+    myForm.addEventListener('submit', function (event) {
+        event.preventDefault();
 
         // Obtener los valores de los campos del formulario
         const identificacion = document.getElementById('identificacion').value;
         const nombrePaciente = document.getElementById('nombrePaciente').value;
         const fecha = document.getElementById('fecha').value;
         const costo = document.getElementById('costo').value;
-        const nombreGeneralista = document.getElementById('generalista').value;
-        const observacion = document.getElementById('observaciones').value;
+        const generalista = document.getElementById('generalista').value;
+        const observaciones = document.getElementById('observaciones').value;
+        const citaId = document.getElementById('citaId').value;
+        const consultorioAsignado = document.getElementById('consultorioAsignado').value;
 
         // Crear el objeto con los datos de la cita a actualizar
         const citaActualizada = {
@@ -43,9 +47,10 @@ document.addEventListener('DOMContentLoaded', function () {
             nombrePaciente: nombrePaciente,
             fecha: fecha,
             costo: costo,
-            nombreGeneralista: nombreGeneralista,
-            observacion: observacion,
-            tipoCita: 'General' 
+            nombreGeneralista: generalista,
+            observacion: observaciones,
+            tipoCita: 'General',
+            idConsultorio: consultorioAsignado
         };
 
         // Realizar una solicitud al backend para actualizar la cita
@@ -59,9 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => {
             if (response.ok) {
                 console.log('Cita actualizada exitosamente');
-                // Limpiar los campos de texto después de una modificación exitosa
                 limpiarCampos();
-                // Redirigir a otra página o realizar alguna acción adicional si es necesario
             } else {
                 throw new Error('Error al actualizar la cita');
             }
@@ -69,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(error => {
             console.error('Error al actualizar la cita:', error);
         });
-        
+
         // Función para limpiar los campos de texto
         function limpiarCampos() {
             document.getElementById('identificacion').value = "";
@@ -81,7 +84,3 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
-
-
-
-
