@@ -1,5 +1,5 @@
 function mostrarListaCita() {
-    fetch('https://gestioncitasmedicas-production.up.railway.app/citas/todas-las-citas')
+    fetch('http://localhost:8080/citas/todas-las-citas')
         .then(response => response.json())
         .then(data => {
             const tablaBody = document.getElementById('tablaPacientesBody');

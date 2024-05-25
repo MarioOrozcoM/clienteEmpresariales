@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
         };
 
         // Realizar una solicitud al backend para eliminar la cita
-        fetch(`https://gestioncitasmedicas-production.up.railway.app/citas/${citaId}`, {
+        fetch(`http://localhost:8080/citas/${citaId}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'

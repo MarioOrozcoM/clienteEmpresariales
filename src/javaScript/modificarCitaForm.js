@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
         };
 
         // Realizar una solicitud al backend para actualizar la cita
-        fetch(`https://gestioncitasmedicas-production.up.railway.app/citas/${citaId}`, {
+        fetch(`http://localhost:8080/citas/${citaId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
