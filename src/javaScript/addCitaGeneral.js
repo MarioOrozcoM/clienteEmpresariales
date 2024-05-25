@@ -40,6 +40,8 @@ document.getElementById('myForm').addEventListener('submit', function(event) {
   .then(data => {
     // Maneja la respuesta del servidor si es necesario
     console.log('Respuesta del servidor:', data);
+    // Muestra el mensaje de éxito
+    document.getElementById('successMessage').classList.remove('hidden');
     // Vacía los campos de texto después de que la solicitud sea exitosa
     document.getElementById('identificacion').value = '';
     document.getElementById('nombre').value = '';

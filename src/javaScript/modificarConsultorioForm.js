@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => {
             if (response.ok) {
                 console.log('Consultorio actualizado exitosamente');
+                document.getElementById('successMessage').classList.remove('hidden');
                 // Limpiar los campos de texto después de una modificación exitosa
                 limpiarCampos();
                 // Redirigir a otra página o realizar alguna acción adicional si es necesario

@@ -61,17 +61,19 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             body: JSON.stringify(citaActualizada)
         })
-        .then(response => {
-            if (response.ok) {
-                console.log('Cita actualizada exitosamente');
-                limpiarCampos();
-            } else {
-                throw new Error('Error al actualizar la cita');
-            }
-        })
-        .catch(error => {
-            console.error('Error al actualizar la cita:', error);
-        });
+            .then(response => {
+                if (response.ok) {
+                    console.log('Cita actualizada exitosamente');
+                    // Muestra el mensaje de éxito
+                    document.getElementById('successMessage').classList.remove('hidden');
+                    limpiarCampos();
+                } else {
+                    throw new Error('Error al actualizar la cita');
+                }
+            })
+            .catch(error => {
+                console.error('Error al actualizar la cita:', error);
+            });
 
         // Función para limpiar los campos de texto
         function limpiarCampos() {

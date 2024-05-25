@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => {
                 if (response.ok) {
                     alert('Consultorio guardado exitosamente.');
+                    document.getElementById('successMessage').classList.remove('hidden');
                     // Limpiar el formulario después de guardar
                     formulario.reset();
                 } else {
