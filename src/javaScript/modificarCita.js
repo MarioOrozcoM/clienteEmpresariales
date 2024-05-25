@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var identificacion = document.getElementById('identificacion').value;
 
-    fetch(`http://localhost:8080/citas/${identificacion}`)
+    fetch(`https://gestioncitasmedicas-production.up.railway.app/citas/${identificacion}`)
       .then(response => response.json())
       .then(data => {
         console.log('Datos recibidos del backend:', data);
