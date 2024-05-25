@@ -119,16 +119,21 @@
         <!-- Contenido principal -->
         <div class="flex justify-center items-center mt-6 relative">
             <img src="/src/img/iconListaPacientes.jpeg" alt="Icono Lista Pacientes" class="mr-4">
-            <h1 class="text-black font-semibold text-2xl">Lista de Consultorios</h1>
+            <h1 class="text-black font-semibold text-2xl">Consulta de Consultorios</h1>
         </div>
     
         <!-- Filtro de búsqueda -->
         <div class="flex justify-center items-center mt-6">
-            <label for="filtroID">ID:</label>
-            <input type="text" id="filtroID" placeholder="ID">
-            <label for="filtroNombre">Seccion:</label>
-            <input type="text" id="filtroNombre" placeholder="Seccion">
-            <button onclick="filtrarConsultorios()">Buscar</button>
+            <div class="mr-4">
+                <label for="filtroID">ID:</label>
+            <input type="text" id="filtroID" placeholder="ID"class="border border-gray-300 rounded-md p-2">
+            </div>
+            <div class="mr-4">
+                <label for="filtroNombre">Seccion:</label>
+            <input type="text" id="filtroNombre" placeholder="Seccion" class="border border-gray-300 rounded-md p-2">
+            </div>
+            <button onclick="filtrarConsultorios()"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Buscar</button>
         </div>
     
         <!-- Tabla de consultorios -->
