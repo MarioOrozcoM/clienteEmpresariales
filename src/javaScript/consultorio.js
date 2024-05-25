@@ -37,18 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             })
             
-            .then(nuevoConsultorio => {
-                // Maneja la respuesta del servidor si es necesario
-                console.log('Respuesta del servidor:', nuevoConsultorio);
-                // Vacía los campos de texto después de que la solicitud sea exitosa
-                document.getElementById('consultorio').value = '';
-                document.getElementById('seccion').value = '';
-              })
-
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Ocurrió un error al guardar el consultorio. Por favor, inténtelo de nuevo.');
-            });
+            
     });
 });
 

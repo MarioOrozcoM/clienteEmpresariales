@@ -45,10 +45,11 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(response => {
             if (response.ok) {
-                console.log('Consultorio eliminado exitosamente');
-                document.getElementById('successMessage').classList.remove('hidden');
+                
                 // Limpiar los campos de texto después de una eliminación exitosa
+                alert('Consultorio eliminado exitosamente');
                 limpiarCampos();
+
                 // Redirigir a otra página o realizar alguna acción adicional si es necesario
             } else {
                 throw new Error('Error al eliminar el consultorio');

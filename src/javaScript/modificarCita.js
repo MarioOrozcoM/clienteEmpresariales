@@ -5,7 +5,12 @@ document.addEventListener('DOMContentLoaded', function () {
     var identificacion = document.getElementById('identificacion').value;
 
     fetch(`http://localhost:8080/citas/${identificacion}`)
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Error en la solicitud');
+        }
+        return response.json();
+      })
       .then(data => {
         console.log('Datos recibidos del backend:', data);
         mostrarResultado(data);
