@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
     const citaId = urlParams.get('id');
     // Realizar una solicitud al backend para obtener los detalles de la cita a modificar
-    fetch(`https://gestioncitasmedicas-production.up.railway.app/citas/${citaId}`)
+    fetch(`http://localhost:8080/citas/${citaId}`)
         .then(response => {
             if (response.ok) {
                 return response.json();

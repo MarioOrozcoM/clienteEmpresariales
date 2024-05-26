@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
     const citaId = urlParams.get('id');
     
-    // Realizar una solicitud al backend para obtener los detalles de la cita a modificar
-    fetch(`https://gestioncitasmedicas-production.up.railway.app/citas/${citaId}`)
+    // Realizar una solicitud al backend para obtener los detalles de la cita a eliminar
+    fetch(`http://localhost:8080/citas/${citaId}`)
         .then(response => {
             if (response.ok) {
                 return response.json();
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(response => {
             if (response.ok) {
-                console.log('Cita eliminada exitosamente');
+                alert('Cita eliminada exitosamente');
                 document.getElementById('successMessage').classList.remove('hidden');
                 // Limpiar los campos de texto después de una eliminación exitosa
                 limpiarCampos();

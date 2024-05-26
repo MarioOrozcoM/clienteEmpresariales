@@ -51,7 +51,7 @@ document.getElementById('myForm').addEventListener('submit', function(event) {
     document.getElementById('observaciones').value = '';
     // Redirecciona a la página de asignar consultorio con el ID de la cita en la URL
     console.log('Redirigiendo a asignar consultorio...');
-    window.location.href = `./asignarConsultorio.html?idCita=${data.numeroIdentificacion}`;
+    window.location.href = `../src/asignarConsultorio.html?idCita=${data.numeroIdentificacion}`;
   })
 
   .catch(error => {
