@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
         })
             .then(response => {
                 if (response.ok) {
-                    console.log('Cita actualizada exitosamente');
+                    alert('Cita actualizada exitosamente');
                     // Muestra el mensaje de éxito
                     document.getElementById('successMessage').classList.remove('hidden');
                     limpiarCampos();
