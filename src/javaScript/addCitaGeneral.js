@@ -41,7 +41,7 @@ document.getElementById('myForm').addEventListener('submit', function(event) {
     // Maneja la respuesta del servidor si es necesario
     console.log('Respuesta del servidor:', data);
     // Muestra el mensaje de éxito
-    document.getElementById('successMessage').classList.remove('hidden');
+    alert('¡Cita guardada con éxito!');
     // Vacía los campos de texto después de que la solicitud sea exitosa
     document.getElementById('identificacion').value = '';
     document.getElementById('nombre').value = '';
@@ -50,8 +50,9 @@ document.getElementById('myForm').addEventListener('submit', function(event) {
     document.getElementById('generalista').value = '';
     document.getElementById('observaciones').value = '';
     // Redirecciona a la página de asignar consultorio con el ID de la cita en la URL
-    window.location.href = `../src/asignarConsultorio.html?idCita=${data.numeroIdentificacion}`;
-})
+    console.log('Redirigiendo a asignar consultorio...');
+    window.location.href = `./asignarConsultorio.html?idCita=${data.numeroIdentificacion}`;
+  })
 
   .catch(error => {
     console.error('Error:', error);
